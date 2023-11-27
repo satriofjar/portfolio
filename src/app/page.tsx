@@ -81,25 +81,62 @@ export default function Home() {
     </nav>
 
     <section id="About" className="my-10">
-        <div className="bg-gradient-to-b from-zinc-900 w-1/2 px-14 pt-10 mx-auto rounded-lg ring-1 ring-zinc-900">
+        <div className="bg-gradient-to-b from-zinc-900 lg:w-1/2 w-10/12 px-14 pt-10 mx-auto rounded-lg ring-1 ring-zinc-900">
           <h2 className="text-white text-4xl">Satrio Fajar</h2>
-          <p className="w-9/12 mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-          <Button buttonText="Contact SatrioFjar" customClass="my-10" />
+          <p className="w-10/12 mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          <Button buttonText="Contact SatrioFjar" customClass="my-10" link="" />
         </div>
     </section>
 
     <section id="Projects" className="my-10">
-        <h3 className="mx-auto w-1/2 mb-5 mt-20 font-extralight text-zinc-400 font-light">PROJECTS</h3>
-        <div className="bg-gradient-to-b from-zinc-900 w-1/2 px-14 pt-5 mx-auto rounded-lg ring-1 ring-zinc-900">
-          <h4 className="text-2xl">Wirabasa.com</h4>
+        <h3 className="mx-auto lg:w-1/2 w-10/12 mb-5 mt-20 font-extralight text-zinc-400 font-light">PROJECTS</h3>
+        <div className="bg-gradient-to-b from-zinc-900 lg:w-1/2 w-10/12 px-14 py-8 mx-auto rounded-lg ring-1 ring-zinc-900">
+          <h4 className="text-2xl">WiraBasa</h4>
+          <p className="w-10/12 mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:w-1/2 w-10/12 mx-auto my-8">
+          <div className="bg-gradient-to-b from-zinc-900 px-14 py-8 rounded-lg ring-1 ring-zinc-900">
+            <h4 className="text-2xl">Tenomas</h4>
+            <p className="w-10/12 mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          </div>
+          <div className="bg-gradient-to-b from-zinc-900 px-14 py-8 rounded-lg ring-1 ring-zinc-900">
+            <h4 className="text-2xl">Tenomas</h4>
+            <p className="w-10/12 mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          </div>
+        </div>
+
+        <div className="mx-auto lg:w-1/2 w-10/12">
+          <Button buttonText="View all" link="" />
+        </div>
+    </section>
+
+    <section id="Skills" className="my-10">
+        <h3 className="mx-auto lg:w-1/2 w-10/12 mb-5 mt-20 font-extralight text-zinc-400 font-light">SKILLS</h3>
+        <div className="bg-gradient-to-b from-zinc-900 lg:w-1/2 w-10/12 px-14 py-8 my-8 mx-auto rounded-lg ring-1 ring-zinc-900">
+          <h4 className="text-2xl">Python</h4>
+          <p className="w-10/12 mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          <div className="flex justify-start gap-4 mt-8">
+            <p className="ring-1 ring-zinc-900 rounded-sm py-1 px-4 w-28 text-center">Django</p>
+            <p className="ring-1 ring-zinc-900 rounded-sm py-1 px-4 w-28 text-center">Flask</p>
+          </div>
+        </div>
+        <div className="bg-gradient-to-b from-zinc-900 lg:w-1/2 w-10/12 px-14 py-8 my-8 mx-auto rounded-lg ring-1 ring-zinc-900">
+          <h4 className="text-2xl">JavaScript</h4>
+          <p className="w-10/12 mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          <div className="flex justify-start gap-4 mt-8">
+            <p className="ring-1 ring-zinc-900 rounded-sm py-1 px-4 w-28 text-center">Next.js</p>
+            <p className="ring-1 ring-zinc-900 rounded-sm py-1 px-4 w-28 text-center">Express</p>
+            <p className="ring-1 ring-zinc-900 rounded-sm py-1 px-4 w-28 text-center">Tailwind</p>
+          </div>
         </div>
     </section>
 
     <section id="GetInTouch" className="py-10">
-      <h3 className="mx-auto w-1/2 mb-5 mt-20 font-extralight text-zinc-400 font-light">Get in touch</h3>
-      <div className="w-1/2 mx-auto">
-        <Button buttonText="Github" customClass="my-2" />
-        <Button buttonText="LinkedIn" customClass="my-2" />
+      <h3 className="mx-auto lg:w-1/2 w-10/12 mb-5 mt-20 font-extralight text-zinc-400 font-light">Get in touch</h3>
+      <div className="lg:w-1/2 w-10/12 mx-auto">
+        <Button buttonText="Github" customClass="my-2" link="https://github.com/satriofjar" />
+        <Button buttonText="LinkedIn" customClass="my-2" link="" />
       </div>
     </section>
    </main>
