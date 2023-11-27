@@ -133,7 +133,7 @@ export default function Home() {
     </section>
 
     <section id="GetInTouch" className="py-10">
-      <h3 className="mx-auto lg:w-1/2 w-10/12 mb-5 mt-20 font-extralight text-zinc-400 font-light">Get in touch</h3>
+      <h3 className="mx-auto lg:w-1/2 w-10/12 mb-5 font-extralight text-zinc-400 font-light">Get in touch</h3>
       <div className="lg:w-1/2 w-10/12 mx-auto">
         <Button buttonText="Github" customClass="my-2" link="https://github.com/satriofjar" />
         <Button buttonText="LinkedIn" customClass="my-2" link="" />
