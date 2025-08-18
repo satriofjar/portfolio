@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+  - export DEPLOYPATH=/home/tenb4948/repositories/portfolio
+  - /bin/cp -r * $DEPLOYPATH
