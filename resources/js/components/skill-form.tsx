@@ -12,16 +12,21 @@ const SkillForm = ({ skillData }: SkillFormProps) => {
     const { data, setData, post, put, reset, errors, progress } = useForm({
         name: skillData?.name || "",
         image: null as File | null,
+        _method: skillData? "PUT": "POST",
     })
 
+    console.log(data)
     const { props }: any = usePage();
     const flash = props.flash;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+        console.log(data)
 
         if (skillData) {
-            put(route('skills.update', skillData.id), {
+            // setData('_method', "PUT")
+            post(route('skills.update', skillData.id), {
+                forceFormData: true,
                 preserveScroll: true,
                 onSuccess: () => reset(),
                 onError: error => console.error(error),
@@ -86,7 +91,7 @@ const SkillForm = ({ skillData }: SkillFormProps) => {
                     <div className="mb-2">Uploading... {progress.percentage}%</div>
                 )}
                 <Button type="submit" className="w-50 bg-white text-black hover:bg-gray-200">
-                    {skillData? "Edit": "Create"}
+                    {skillData ? "Edit" : "Create"}
                 </Button>
             </form>
 

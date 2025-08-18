@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Skill;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
@@ -49,9 +49,7 @@ class SkillController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Skill $skill)
-    {
-    }
+    public function show(Skill $skill) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -68,6 +66,7 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
+        // dd($request->all());
         $validated = $request->validate([
             'name' => [
                 'required',
@@ -77,16 +76,15 @@ class SkillController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        // $a = $request->hasFile('image');
-        //
-        // return response()->json(['message' => $validated, "a"=> $a], 200);
         if ($request->hasFile('image')) {
-            if ($skill->image && Storage::exists($skill->image)) {
-                Storage::delete($skill->image);
+
+            $file_path = public_path('storage/' . $skill->image);
+            if ($skill->image && File::exists($file_path)) {
+                File::delete($file_path);
             }
             $imagePath = $request->file('image')->store('skills', 'public');
             $validated['image'] = $imagePath;
-        }else{
+        } else {
             unset($validated['image']);
         }
         $skill->update($validated);
@@ -100,8 +98,9 @@ class SkillController extends Controller
     public function destroy(Skill $skill)
     {
         // Hapus gambar dari storage jika ada
-        if ($skill->image) {
-            Storage::delete($skill->image);
+        $file_path = public_path('storage/' . $skill->image);
+        if (File::exists($file_path)) {
+            File::delete($file_path);
         }
 
         $skill->delete();

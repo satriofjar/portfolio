@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
@@ -68,7 +69,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         return Inertia::render('projects/editProject', [
-            'project'=> $project,
+            'project' => $project,
         ]);
     }
 
@@ -88,12 +89,13 @@ class ProjectController extends Controller
 
 
         if ($request->hasFile('image')) {
-            if ($project->image && Storage::exists($project->image)) {
-                Storage::delete($project->image);
+            $file_path = public_path('storage/' . $project->image);
+            if ($project->image && File::exists($file_path)) {
+                File::delete($file_path);
             }
             $imagePath = $request->file('image')->store('projects', 'public');
             $validated['image'] = $imagePath;
-        }else{
+        } else {
             unset($validated['image']);
         }
 
@@ -108,8 +110,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //// Hapus gambar dari storage jika ada
-        if ($project->image) {
-            Storage::delete($project->image);
+        $file_path = public_path('storage/' . $project->image);
+        if ($project->image && File::exists($file_path)) {
+            File::delete($file_path);
         }
 
         $project->delete();
