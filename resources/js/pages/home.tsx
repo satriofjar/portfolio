@@ -133,7 +133,7 @@ const Home = ({ skills, projects }: { skills: SkillType[]; projects: ProjectType
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                             Hi, I am Satrio Fajar<br />
-                            <span className="text-gray-300">Software Developer & AI Enthusiast</span>
+                            <span className="text-gray-300">Software Developer</span>
                         </h1>
                         <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
                             Building scalable, efficient, and reliable software solutions to support modern business needs.
@@ -151,9 +151,9 @@ const Home = ({ skills, projects }: { skills: SkillType[]; projects: ProjectType
                 <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
                     <div className="max-w-4xl mx-auto text-center">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-8">About Me</h2>
-                        <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                        <p className="text-lg text-gray-300 text-justify leading-relaxed max-w-3xl mx-auto">
                             I am a passionate backend developer with extensive experience in building robust, scalable systems using Go,
-                            Python, and SQL. My expertise lies in microservices architecture, performance optimization, and AI
+                            Python, Php, Node js, and SQL. My expertise lies in microservices architecture, performance optimization, and AI
                             integration. I thrive on solving complex technical challenges and creating efficient solutions that drive
                             business growth. With a strong foundation in modern development practices and a keen interest in emerging
                             technologies, I am always exploring new ways to improve system reliability and performance.
@@ -167,13 +167,14 @@ const Home = ({ skills, projects }: { skills: SkillType[]; projects: ProjectType
                         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Skills</h2>
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                             {skills.map((skill, index) => {
-                                // const IconComponent = skill.image
                                 return (
                                     <div
                                         key={index}
                                         className="flex flex-col items-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors"
                                     >
-                                        <img src={`/storage/${skill.image}`} alt={skill.name} className="text-gray-300 w-13 mb-3" />
+                                        <div className="h-15 w-full items-center">
+                                            <img src={`/storage/${skill.image}`} alt={skill.name} className="object-contain m-auto w-13 h-15" />
+                                        </div>
                                         <span className="text-gray-200 font-medium text-center">{skill.name}</span>
                                     </div>
                                 )
