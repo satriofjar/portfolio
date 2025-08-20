@@ -189,7 +189,7 @@ const Home = ({ skills, projects }: { skills: SkillType[]; projects: ProjectType
                         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Projects</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {projects.map((project, index) => (
-                                <Card key={index} className="bg-gray-900 border-gray-700 hover:border-gray-600 transition-colors">
+                                <Card key={index} className="bg-gray-900 border-gray-700 hover:border-gray-600 transition-colors flex flex-col">
                                     <div className="aspect-video bg-gray-800 rounded-t-lg overflow-hidden">
                                         <img
                                             src={project.image ? `/storage/${project.image}` : "/placeholder.svg"}
@@ -197,9 +197,9 @@ const Home = ({ skills, projects }: { skills: SkillType[]; projects: ProjectType
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
-                                    <CardContent className="p-6">
+                                    <CardContent className="p-6 flex flex-col h-90">
                                         <h3 className="text-xl font-bold mb-3 text-white">{project.title}</h3>
-                                        <p className="text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+                                        <p className="text-gray-400 mb-4 leading-relaxed">{project.description.length > 190 ? `${project.description.slice(0,190)}...` : project.description}</p>
                                         <div className="flex flex-wrap gap-2 mb-4">
                                             {project.stack.map((tech, techIndex) => (
                                                 <span key={techIndex} className="px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full">
@@ -210,7 +210,7 @@ const Home = ({ skills, projects }: { skills: SkillType[]; projects: ProjectType
                                         <a
                                             href={project.url}
                                             target="_blank"
-                                            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 w-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white bg-transparent"
+                                            className="inline-flex mt-auto items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 w-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white bg-transparent"
                                         >
                                             View Details <ExternalLink size={16} className="ml-2" />
                                         </a>
