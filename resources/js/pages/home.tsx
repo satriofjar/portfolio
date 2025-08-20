@@ -199,7 +199,7 @@ const Home = ({ skills, projects }: { skills: SkillType[]; projects: ProjectType
                                     </div>
                                     <CardContent className="p-6 flex flex-col h-90">
                                         <h3 className="text-xl font-bold mb-3 text-white">{project.title}</h3>
-                                        <p className="text-gray-400 mb-4 leading-relaxed">{project.description.length > 190 ? `${project.description.slice(0,190)}...` : project.description}</p>
+                                        <p className="text-gray-400 mb-4 leading-relaxed">{project.description?.length > 190 ? `${project.description.slice(0,190)}...` : project.description}</p>
                                         <div className="flex flex-wrap gap-2 mb-4">
                                             {project.stack.map((tech, techIndex) => (
                                                 <span key={techIndex} className="px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full">
